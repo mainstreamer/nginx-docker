@@ -5,9 +5,6 @@ services:
     container_name: "nginx-router"
     env_file:
       - .env
-    environment:
-      SERVER_IP: ${SERVER_IP}
-      DOMAIN: ${DOMAIN}
     build:
       args:
         SERVER_IP: ${SERVER_IP}
