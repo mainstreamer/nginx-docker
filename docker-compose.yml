@@ -18,3 +18,4 @@ services:
       - "443:443"
 networks:
   backend-flags:
+    external: true

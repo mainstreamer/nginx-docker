@@ -1,0 +1,15 @@
+# Default server configuration
+
+server {
+    listen 80;
+    server_name capitals.localhost;
+
+    location = / {
+        root /var/www/html/test;
+        try_files /index.html =404;
+    }
+
+    location / {
+        proxy_pass http://nginx-flags-api;
+    }
+}

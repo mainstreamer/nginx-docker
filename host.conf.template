@@ -1,16 +1,23 @@
 # Default server configuration
 
+
+server {
+    listen 80;
+    server_name php.$DOMAIN;
+    location / { proxy_pass https://google.com; }
+}
+
 server {
     listen 80;
     server_name capitals.$DOMAIN;
 
-    location = / {
-        root /var/www/html/public;
-        try_files /index.html =404;
-    }
+    #location = / {
+    #    root /var/www/html/public;
+    #    try_files /index.html =404;
+    #}
 
     location / {
-        proxy_pass http://nginx-flags-api;
+        proxy_pass http://$DOMAIN:8080;
     }
 
   #  location / {
@@ -22,9 +29,9 @@ server {
     #    proxy_pass http://$SERVER_IP:8080;
     #}
 
-    #location @php {
-    #    proxy_pass https://nginx-flags-api;
-    #}
+    location @php {
+        proxy_pass http://$DOMAIN:8080;
+    }
 
     #location / {
     #    root /var/www/html/public;
@@ -48,8 +55,7 @@ server {
     }
 
     location @php {
-         proxy_pass https://nginx-flags-api;
-        #proxy_pass https://$SERVER_IP:4443;
+        proxy_pass https://$SERVER_IP:4443;
     }
 
     ssl_certificate /etc/nginx/certs/fullchain.pem; # Path to your fullchain.pem or .crt file
