@@ -8,6 +8,8 @@ services:
     build:
       args:
         SERVER_IP: ${SERVER_IP}
+        SSL_FULLCHAIN: ${SSL_FULLCHAIN}
+        SSL_PRIVKEY: ${SSL_PRIVKEY}
       context: .
       dockerfile: .docker/nginx/Dockerfile
     restart: always

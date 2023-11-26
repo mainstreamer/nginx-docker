@@ -22,6 +22,9 @@ jobs:
       - name: Use context
         run: docker context use icu
       - name: Build the Docker image
+        env:
+          SSL_FULLCHAIN: ${{ secrets.SSL_FULLCHAIN }}
+          SSL_PRIVKEY: ${{ secrets.SSL_PRIVKEY }}
         run: printenv && docker compose up -d --build
       - name: Remove keys
         run: rm ${HOME}/ca.pem ${HOME}/cert.pem ${HOME}/key.pem
