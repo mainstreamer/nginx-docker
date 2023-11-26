@@ -1,12 +1,13 @@
 name: Build and Deploy nginx router
 
-jobs:
-  deploy:
-    on:
-      push:
-        branches:
-          - master  # Set the branch to trigger the workflow
+on:
+  push:
+    branches:
+      - master  # Set the branch to trigger the workflow
 
+jobs:
+
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
