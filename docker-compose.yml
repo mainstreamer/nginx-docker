@@ -11,6 +11,8 @@ services:
       context: .
       dockerfile: .docker/nginx/Dockerfile
     restart: always
+    volumes:
+      - "capitals-app:/var/www/html/public"
     networks:
       - backend-flags
     ports:
@@ -18,4 +20,7 @@ services:
       - "443:443"
 networks:
   backend-flags:
+    external: true
+volumes:
+  capitals-app:
     external: true
