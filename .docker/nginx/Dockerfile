@@ -10,7 +10,7 @@ RUN rm -rf /var/cache/apk/* && rm -rf /tmp/*
 ADD .docker/nginx/nginx.conf /etc/nginx/
 RUN mkdir -p /etc/nginx/certs
 
-ADD .docker/nginx/certs/* /etc/nginx/certs/
+#ADD .docker/nginx/certs/* /etc/nginx/certs/
 RUN echo "$SSL_FULLCHAIN" | base64 -d > /etc/nginx/certs/fullchain.pem
 RUN echo "$SSL_PRIVKEY" | base64 -d > /etc/nginx/certs/privkey.pem
 
