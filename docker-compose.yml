@@ -15,7 +15,7 @@ services:
     restart: always
     volumes:
       - "capitals-app:/var/www/html/public"
-      - /etc/letsencrypt/live:/etc/certs
+      - /etc/letsencrypt/live:/etc/certs:rbind
     networks:
       - backend-flags
     ports:
