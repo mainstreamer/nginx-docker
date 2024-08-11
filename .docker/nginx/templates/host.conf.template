@@ -52,8 +52,8 @@ server {
         #proxy_pass https://$SERVER_IP:4443;
     }
 
-    ssl_certificate /etc/certs/tldr.icu-0001/fullchain.pem; # Path to your fullchain.pem or .crt file
-    ssl_certificate_key /etc/certs/tldr.icu-0001/privkey.pem; # Path to your private key file
+    ssl_certificate /etc/nginx/certs/tldr.icu-0001/fullchain.pem; # Path to your fullchain.pem or .crt file
+    ssl_certificate_key /etc/nginx/certs/tldr.icu-0001/privkey.pem; # Path to your private key file
 
 
    # ssl_certificate /etc/nginx/certs/fullchain.pem; # Path to your fullchain.pem or .crt file
