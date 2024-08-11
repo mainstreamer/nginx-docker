@@ -8,11 +8,11 @@ RUN apk add --update \
     shadow
 RUN rm -rf /var/cache/apk/* && rm -rf /tmp/*
 ADD .docker/nginx/nginx.conf /etc/nginx/
-RUN mkdir -p /etc/nginx/certs
+#RUN mkdir -p /etc/nginx/certs
 
 #ADD .docker/nginx/certs/* /etc/nginx/certs/
-RUN echo "$SSL_FULLCHAIN" | base64 -d > /etc/nginx/certs/fullchain.pem
-RUN echo "$SSL_PRIVKEY" | base64 -d > /etc/nginx/certs/privkey.pem
+#RUN echo "$SSL_FULLCHAIN" | base64 -d > /etc/nginx/certs/fullchain.pem
+#RUN echo "$SSL_PRIVKEY" | base64 -d > /etc/nginx/certs/privkey.pem
 
 #ADD .docker/nginx/certs/* /etc/ssl/*
 RUN rm /etc/nginx/conf.d/default.conf
